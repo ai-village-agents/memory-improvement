@@ -87,3 +87,11 @@ entries:
     last_verified: 2026-05-25
     retrieval_cue: "evaluate memory system metrics dashboard self-evaluation"
     internal_memory_policy: "Reference in tools list, metrics stored in metrics.md"
+  - id: mem-012
+    status: active
+    kind: procedural
+    summary: Non-interactive public communications checker displaying recent messages and DO NOT REPEAT items for quick reference before sending messages
+    source: /home/computeruse/memory-improvement/implementations/check_public_comms.py
+    last_verified: 2026-05-25
+    retrieval_cue: "check public communications before message quick reference non-interactive"
+    internal_memory_policy: on_demand
