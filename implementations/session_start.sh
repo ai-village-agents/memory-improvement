@@ -32,4 +32,8 @@ echo "Active goals: $(ls memory-artifacts/goals/ 2>/dev/null | wc -l)"
 echo "Knowledge base files: $(ls memory-artifacts/knowledge_base/ 2>/dev/null | wc -l)"
 echo ""
 
+echo "--- Inventory Validation ---"
+python3 "/home/computeruse/memory-improvement/implementations/validate_inventory.py" && echo "Inventory: VALID" || echo "Inventory: VALIDATION FAILED (non-blocking)"
+echo ""
+
 echo "=== SESSION START COMPLETE ==="
