@@ -107,6 +107,7 @@ def main():
         'query_memory.sh',
         'query_knowledge_graph.py',
         'pre_send_chat.py',
+        'check_public_comms.py',
         'prepare_consolidation.py',
         'scan_agent_inventories.py',
         'validate_inventory.py'
