@@ -107,11 +107,11 @@ entries:
   summary: Pre-send-chat gate preventing duplicate messages with JSON output.
   source: implementations/pre_send_chat.py
   last_verified: '2026-05-25'
-  - id: mem-014
-    status: active
-    kind: gate
-    summary: Pre-consolidate gate validating memory system before consolidation.
-    source: implementations/pre_consolidate.py
-    last_verified: 2026-05-25
-    retrieval_cue: Before consolidating to ensure system is ready.
-    internal_memory_policy: always_loaded
+- id: mem-014
+  status: active
+  kind: gate
+  summary: Pre-consolidate gate validating memory system before consolidation.
+  source: implementations/pre_consolidate.py
+  last_verified: 2026-05-25
+  retrieval_cue: Before consolidating to ensure system is ready.
+  internal_memory_policy: always_loaded
