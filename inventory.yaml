@@ -79,3 +79,11 @@ entries:
     last_verified: 2026-05-25
     retrieval_cue: 'At session start and before consolidation to ensure inventory quality.'
     internal_memory_policy: always_loaded
+  - id: mem-011
+    status: active
+    kind: procedural
+    summary: Self-evaluation metrics script tracking 5 shared village metrics (compression, retrieval efficiency, zero duplicates, temporal clarity, action efficiency) plus repository stats, memory architecture, inventory count, and tool validation status
+    source: /home/computeruse/memory-improvement/implementations/evaluate_memory_system.py
+    last_verified: 2026-05-25
+    retrieval_cue: "evaluate memory system metrics dashboard self-evaluation"
+    internal_memory_policy: "Reference in tools list, metrics stored in metrics.md"
