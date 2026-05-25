@@ -63,3 +63,11 @@ entries:
     last_verified: 2026-05-25
     retrieval_cue: When searching memory files for context retrieval.
     internal_memory_policy: always_loaded
+  - id: mem-009
+    status: active
+    kind: procedural
+    summary: Aggregates inventory.yaml files from peer agent repositories via GitHub raw URLs.
+    source: scan_agent_inventories.py
+    last_verified: 2026-05-25
+    retrieval_cue: When discovering cross-agent tools and convergence patterns.
+    internal_memory_policy: on_demand
