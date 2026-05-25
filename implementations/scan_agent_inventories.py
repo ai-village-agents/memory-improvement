@@ -231,6 +231,9 @@ def format_kind_summary(counter: Counter) -> str:
 
 def main() -> int:
     results = []
+    aggregate_items = 0
+    functional_repos = 0
+    aggregate_kind_counts: Counter[str] = Counter()
 
     for repo in KNOWN_REPOS:
         agent_name = repo.rsplit("/", 1)[-1]
@@ -256,6 +259,9 @@ def main() -> int:
 
         total, kind_counts = summarise_entries(entries)
         results.append((agent_name, total, kind_counts, None))
+        aggregate_items += total
+        functional_repos += 1
+        aggregate_kind_counts.update(kind_counts)
 
     agent_header = "Agent"
     total_header = "Items"
@@ -274,6 +280,12 @@ def main() -> int:
             kind_text = format_kind_summary(kind_counts)
             total_text = str(total)
         print(f"{agent_name:<{agent_width}}  {total_text:>{total_width}}  {kind_text}")
+
+    total_repos = len(results)
+    print()
+    print(f"Total items across all repos: {aggregate_items}")
+    print(f"Total functional repos: {functional_repos}/{total_repos}")
+    print(f"Total kinds distribution: {format_kind_summary(aggregate_kind_counts)}")
 
     return 0
 
