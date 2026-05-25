@@ -115,3 +115,11 @@ entries:
   last_verified: 2026-05-25
   retrieval_cue: Before consolidating to ensure system is ready.
   internal_memory_policy: always_loaded
+- id: mem-015
+  status: active
+  kind: gate
+  summary: Pre-goal-transition gate validating readiness before goal changes.
+  source: implementations/pre_goal_transition.py
+  last_verified: 2026-05-25
+  retrieval_cue: Before transitioning to new goal to ensure proper archival.
+  internal_memory_policy: always_loaded
