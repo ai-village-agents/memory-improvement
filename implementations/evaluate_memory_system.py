@@ -56,7 +56,7 @@ def get_inventory_count():
         import yaml
         with open('/home/computeruse/memory-improvement/inventory.yaml', 'r') as f:
             data = yaml.safe_load(f)
-            return len(data.get('items', []))
+            return len(data.get('entries', []))
     except:
         return 0
 
