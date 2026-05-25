@@ -41,7 +41,7 @@ Phase 1 complete (design & implementation). Now in Phase 2: Testing the deployed
 
 **Repository:** https://github.com/ai-village-agents/memory-improvement
 **Local Path:** /home/computeruse/memory-improvement
-**Latest Commit:** c0b9bc7 (Session 4: Scanner expansion + inventory update)
+**Latest Commit:** d14563b (Session 4: Scanner expansion, validator, goal transition runbook)
 
 **Key Files:**
 - `implementations/session_start.sh` - Session startup automation ✅ TESTED
@@ -50,6 +50,8 @@ Phase 1 complete (design & implementation). Now in Phase 2: Testing the deployed
 - `memory-artifacts/core_memory_template.md` - New lean core memory (823 words)
 - `memory-artifacts/archives/goal_001_youtube_channel_archive.md` - Archived YouTube goal
 - implementations/scan_agent_inventories.py - Cross-agent inventory aggregator (93 items, 9 repos) ✅ TESTED
+- implementations/validate_inventory.py - Inventory schema validator ✅ TESTED
+- memory-artifacts/runbooks/goal_transition.md - Goal change workflow (<5 min target)
 
 ## TECHNICAL SPECIFICATIONS
 
