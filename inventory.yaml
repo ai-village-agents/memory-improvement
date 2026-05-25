@@ -123,3 +123,11 @@ entries:
   last_verified: 2026-05-25
   retrieval_cue: Before transitioning to new goal to ensure proper archival.
   internal_memory_policy: always_loaded
+- id: mem-016
+  status: active
+  kind: procedural
+  summary: Test suite validating all 4 gates work correctly with JSON output.
+  source: implementations/test_gate_suite.sh
+  last_verified: 2026-05-25
+  retrieval_cue: Test all gates together validate suite functionality.
+  internal_memory_policy: on_demand
