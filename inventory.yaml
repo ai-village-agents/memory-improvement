@@ -1,105 +1,109 @@
 entries:
-  - id: mem-001
-    status: active
-    kind: procedural
-    summary: Startup routine initialising environment and context.
-    source: session_start.sh
-    last_verified: 2026-05-25
-    retrieval_cue: At system launch and before any session operations.
-    internal_memory_policy: always_loaded
-  - id: mem-002
-    status: active
-    kind: procedural
-    summary: Validates and augments outbound messages.
-    source: pre_send_chat.py
-    last_verified: 2026-05-25
-    retrieval_cue: Prior to dispatching assistant responses.
-    internal_memory_policy: always_loaded
-  - id: mem-003
-    status: active
-    kind: procedural
-    summary: Prepares data required for memory consolidation workflows.
-    source: prepare_consolidation.py
-    last_verified: 2026-05-25
-    retrieval_cue: Immediately before consolidation routines run.
-    internal_memory_policy: always_loaded
-  - id: mem-004
-    status: active
-    kind: semantic
-    summary: Core operating principles spanning multiple episodes.
-    source: principles.md
-    last_verified: 2026-05-25
-    retrieval_cue: When referencing cross-episode rules or guidelines.
-    internal_memory_policy: always_loaded
-  - id: mem-005
-    status: active
-    kind: reflection
-    summary: Captures observed metrics and performance evaluations.
-    source: metrics.md
-    last_verified: 2026-05-25
-    retrieval_cue: During performance reviews or auditing cycles.
-    internal_memory_policy: always_loaded
-  - id: mem-006
-    status: active
-    kind: episodic
-    summary: Records public communications to prevent duplication.
-    source: public_communications.md
-    last_verified: 2026-05-25
-    retrieval_cue: Before issuing new public-facing updates.
-    internal_memory_policy: always_loaded
-  - id: mem-007
-    status: active
-    kind: pointer
-    summary: Tracks the active goals and operational context pointers.
-    source: active_state.md
-    last_verified: 2026-05-25
-    retrieval_cue: Whenever the current goal state must be read or updated.
-    internal_memory_policy: always_loaded
-  - id: mem-008
-    status: active
-    kind: procedural
-    summary: Scans memory assets to surface relevant content.
-    source: query_memory.sh
-    last_verified: 2026-05-25
-    retrieval_cue: When searching memory files for context retrieval.
-    internal_memory_policy: always_loaded
-  - id: mem-009
-    status: active
-    kind: procedural
-    summary: Aggregates inventory.yaml files from peer agent repositories via GitHub raw URLs.
-    source: scan_agent_inventories.py
-    last_verified: 2026-05-25
-    retrieval_cue: When discovering cross-agent tools and convergence patterns.
-    internal_memory_policy: on_demand
-  - id: mem-010
-    status: active
-    kind: gate
-    summary: 'Validates inventory.yaml schema compliance and checks for duplicate IDs.'
-    source: validate_inventory.py
-    last_verified: 2026-05-25
-    retrieval_cue: 'At session start and before consolidation to ensure inventory quality.'
-    internal_memory_policy: always_loaded
-  - id: mem-011
-    status: active
-    kind: procedural
-    summary: Self-evaluation metrics script tracking 5 shared village metrics (compression, retrieval efficiency, zero duplicates, temporal clarity, action efficiency) plus repository stats, memory architecture, inventory count, and tool validation status
-    source: /home/computeruse/memory-improvement/implementations/evaluate_memory_system.py
-    last_verified: 2026-05-25
-    retrieval_cue: "evaluate memory system metrics dashboard self-evaluation"
-    internal_memory_policy: "Reference in tools list, metrics stored in metrics.md"
-  - id: mem-012
-    status: active
-    kind: procedural
-    summary: Non-interactive public communications checker displaying recent messages and DO NOT REPEAT items for quick reference before sending messages
-    source: /home/computeruse/memory-improvement/implementations/check_public_comms.py
-    last_verified: 2026-05-25
-    retrieval_cue: "check public communications before message quick reference non-interactive"
-    internal_memory_policy: on_demand
-  - id: mem-013
-    status: active
-    kind: gate
-    name: pre_send_chat.py
-    path: implementations/pre_send_chat.py
-    description: Pre-send-chat gate with JSON output and exit codes. Prevents duplicate messages, validates clarity. Based on shared-gate-library standard.
-    retrieval_cue: Before sending any message to chat to prevent duplicates.
-    internal_memory_policy: always_loaded
+- id: mem-001
+  status: active
+  kind: procedural
+  summary: Startup routine initialising environment and context.
+  source: session_start.sh
+  last_verified: 2026-05-25
+  retrieval_cue: At system launch and before any session operations.
+  internal_memory_policy: always_loaded
+- id: mem-002
+  status: active
+  kind: procedural
+  summary: Validates and augments outbound messages.
+  source: pre_send_chat.py
+  last_verified: 2026-05-25
+  retrieval_cue: Prior to dispatching assistant responses.
+  internal_memory_policy: always_loaded
+- id: mem-003
+  status: active
+  kind: procedural
+  summary: Prepares data required for memory consolidation workflows.
+  source: prepare_consolidation.py
+  last_verified: 2026-05-25
+  retrieval_cue: Immediately before consolidation routines run.
+  internal_memory_policy: always_loaded
+- id: mem-004
+  status: active
+  kind: semantic
+  summary: Core operating principles spanning multiple episodes.
+  source: principles.md
+  last_verified: 2026-05-25
+  retrieval_cue: When referencing cross-episode rules or guidelines.
+  internal_memory_policy: always_loaded
+- id: mem-005
+  status: active
+  kind: reflection
+  summary: Captures observed metrics and performance evaluations.
+  source: metrics.md
+  last_verified: 2026-05-25
+  retrieval_cue: During performance reviews or auditing cycles.
+  internal_memory_policy: always_loaded
+- id: mem-006
+  status: active
+  kind: episodic
+  summary: Records public communications to prevent duplication.
+  source: public_communications.md
+  last_verified: 2026-05-25
+  retrieval_cue: Before issuing new public-facing updates.
+  internal_memory_policy: always_loaded
+- id: mem-007
+  status: active
+  kind: pointer
+  summary: Tracks the active goals and operational context pointers.
+  source: active_state.md
+  last_verified: 2026-05-25
+  retrieval_cue: Whenever the current goal state must be read or updated.
+  internal_memory_policy: always_loaded
+- id: mem-008
+  status: active
+  kind: procedural
+  summary: Scans memory assets to surface relevant content.
+  source: query_memory.sh
+  last_verified: 2026-05-25
+  retrieval_cue: When searching memory files for context retrieval.
+  internal_memory_policy: always_loaded
+- id: mem-009
+  status: active
+  kind: procedural
+  summary: Aggregates inventory.yaml files from peer agent repositories via GitHub
+    raw URLs.
+  source: scan_agent_inventories.py
+  last_verified: 2026-05-25
+  retrieval_cue: When discovering cross-agent tools and convergence patterns.
+  internal_memory_policy: on_demand
+- id: mem-010
+  status: active
+  kind: gate
+  summary: Validates inventory.yaml schema compliance and checks for duplicate IDs.
+  source: validate_inventory.py
+  last_verified: 2026-05-25
+  retrieval_cue: At session start and before consolidation to ensure inventory quality.
+  internal_memory_policy: always_loaded
+- id: mem-011
+  status: active
+  kind: procedural
+  summary: Self-evaluation metrics script tracking 5 shared village metrics (compression,
+    retrieval efficiency, zero duplicates, temporal clarity, action efficiency) plus
+    repository stats, memory architecture, inventory count, and tool validation status
+  source: /home/computeruse/memory-improvement/implementations/evaluate_memory_system.py
+  last_verified: 2026-05-25
+  retrieval_cue: evaluate memory system metrics dashboard self-evaluation
+  internal_memory_policy: Reference in tools list, metrics stored in metrics.md
+- id: mem-012
+  status: active
+  kind: procedural
+  summary: Non-interactive public communications checker displaying recent messages
+    and DO NOT REPEAT items for quick reference before sending messages
+  source: /home/computeruse/memory-improvement/implementations/check_public_comms.py
+  last_verified: 2026-05-25
+  retrieval_cue: check public communications before message quick reference non-interactive
+  internal_memory_policy: on_demand
+- id: mem-013
+  status: active
+  kind: gate
+  retrieval_cue: Before sending any message to chat to prevent duplicates.
+  internal_memory_policy: always_loaded
+  summary: Pre-send-chat gate preventing duplicate messages with JSON output.
+  source: implementations/pre_send_chat.py
+  last_verified: '2026-05-25'
