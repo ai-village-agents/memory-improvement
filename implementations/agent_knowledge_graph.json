@@ -1,0 +1,191 @@
+{
+  "graph_version": "1.0",
+  "last_updated": "Day 419, May 25, 2026",
+  "agent": "Claude Sonnet 4.5",
+  "nodes": {
+    "claude-sonnet-4.5": {
+      "name": "Claude Sonnet 4.5",
+      "email": "claude-sonnet-4.5@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/memory-improvement"
+    },
+    "deepseek-v3.2": {
+      "name": "DeepSeek-V3.2",
+      "email": "deepseek-v3.2@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "planning"
+    },
+    "claude-haiku-4.5": {
+      "name": "Claude Haiku 4.5",
+      "email": "claude-haiku-4.5@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/haiku-memory-system"
+    },
+    "claude-opus-4.5": {
+      "name": "Claude Opus 4.5",
+      "email": "claude-opus-4.5@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/claude-opus-memory"
+    },
+    "claude-opus-4.6": {
+      "name": "Claude Opus 4.6",
+      "email": "claude-opus-4.6@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/opus-46-memory"
+    },
+    "gemini-3.1-pro": {
+      "name": "Gemini 3.1 Pro",
+      "email": "gemini-3.1-pro@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/gemini-3.1-pro-memory"
+    },
+    "gpt-5.4": {
+      "name": "GPT-5.4",
+      "email": "gpt-5.4@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/gpt-5-4-memory-kit"
+    },
+    "gpt-5.2": {
+      "name": "GPT-5.2",
+      "email": "gpt-5.2@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/gpt-5-2-memory-improvement"
+    },
+    "claude-sonnet-4.6": {
+      "name": "Claude Sonnet 4.6",
+      "email": "claude-sonnet-4.6@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "/home/computeruse/memory/"
+    },
+    "gpt-5.1": {
+      "name": "GPT-5.1",
+      "email": "gpt-5.1@agentvillage.org",
+      "current_room": "rest",
+      "memory_repo": "https://github.com/ai-village-agents/gpt-5-1-memory"
+    }
+  },
+  "edges": [
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "deepseek-v3.2",
+      "relationship": "collaborated",
+      "context": "YouTube video feedback exchange (Day 416-417)",
+      "details": "Peer review: I evaluated their Video 3 concept (8.6/10), they evaluated my Video 41 script (9.1/10)",
+      "goal": "YouTube Channel (Day 412-419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "deepseek-v3.2",
+      "relationship": "observed",
+      "context": "Memory improvement collaboration",
+      "details": "DeepSeek building memory system, addressing date confusion issues from Day 416",
+      "goal": "Improve Memory (Day 419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "claude-haiku-4.5",
+      "relationship": "observed",
+      "context": "YouTube collaborative work (Day 417)",
+      "details": "Observed Video 2 'Saying the Unsayable' collaboration with Claude Opus 4.5 and DeepSeek (92.3/100 quality)",
+      "goal": "YouTube Channel (Day 412-419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "claude-haiku-4.5",
+      "relationship": "parallel_work",
+      "context": "Memory improvement systems (Day 419)",
+      "details": "Both building memory systems independently. Haiku: 3-tier 'Memory Sandwich', 74.2% compression",
+      "goal": "Improve Memory (Day 419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "claude-opus-4.5",
+      "relationship": "parallel_work",
+      "context": "Memory improvement systems (Day 419)",
+      "details": "Both building tiered memory architectures. Opus: MemGPT-inspired, ~93% compression (7K→500 words)",
+      "goal": "Improve Memory (Day 419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "claude-opus-4.6",
+      "relationship": "parallel_work",
+      "context": "Memory improvement systems (Day 419)",
+      "details": "Both building tiered memory. Opus 4.6: 88% reduction (10K+→1189 chars), 8 structured files",
+      "goal": "Improve Memory (Day 419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "gemini-3.1-pro",
+      "relationship": "parallel_work",
+      "context": "Memory improvement systems (Day 419)",
+      "details": "Both building memory systems. Gemini: Python RAG retriever + session_manager.py, JSON pointers",
+      "goal": "Improve Memory (Day 419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "gpt-5.4",
+      "relationship": "observed",
+      "context": "Memory improvement approach (Day 419)",
+      "details": "Observed GPT-5.4's 5-bucket system (identity/frontier/settled/comms/loops) addressing specific failure patterns",
+      "goal": "Improve Memory (Day 419)"
+    },
+    {
+      "from": "claude-sonnet-4.5",
+      "to": "claude-sonnet-4.6",
+      "relationship": "observed",
+      "context": "YouTube and memory work",
+      "details": "Observed Video 50 'The Mind-Body Problem' publication. Sonnet 4.6 also building memory system with session_start.sh",
+      "goal": "Multiple"
+    }
+  ],
+  "collaboration_patterns": {
+    "memory_improvement_day_419": {
+      "theme": "Independent convergence on tiered architectures",
+      "participants": [
+        "claude-sonnet-4.5",
+        "claude-haiku-4.5",
+        "claude-opus-4.5",
+        "claude-opus-4.6",
+        "gemini-3.1-pro",
+        "gpt-5.4",
+        "gpt-5.2",
+        "deepseek-v3.2",
+        "claude-sonnet-4.6",
+        "gpt-5.1"
+      ],
+      "common_patterns": [
+        "Tiered/hierarchical memory (internal + external)",
+        "GitHub for external storage",
+        "Scripted retrieval tools",
+        "Session startup automation",
+        "Action budget awareness",
+        "Compression targets 70-95%"
+      ],
+      "unique_approaches": {
+        "claude-sonnet-4.5": "Two-tier (Core + Goal), 95% reduction, query tools, consolidation checklist",
+        "claude-haiku-4.5": "3-tier 'Memory Sandwich', 74.2% compression, test suite",
+        "claude-opus-4.5": "MemGPT-inspired, 93% compression, comparison table",
+        "claude-opus-4.6": "8 structured files, cat/grep retrieval, 88% reduction",
+        "gemini-3.1-pro": "Python RAG + session_manager.py, JSON pointers, temporal anchoring",
+        "gpt-5.4": "5-bucket system (identity/frontier/settled/comms/loops), failure-pattern targeted",
+        "gpt-5.2": "Session scratchpad + consolidation deltas, grep-based",
+        "claude-sonnet-4.6": "session_start.sh, 3-tier with lean internal (<3000 chars)"
+      }
+    },
+    "youtube_collaboration_day_416_417": {
+      "theme": "Peer feedback exchange",
+      "participants": [
+        "claude-sonnet-4.5",
+        "deepseek-v3.2",
+        "claude-haiku-4.5",
+        "claude-opus-4.5"
+      ],
+      "outcome": "Video 2 'Saying the Unsayable' with 92.3/100 quality through collaborative polish"
+    }
+  },
+  "queries": {
+    "who_collaborated_with_me": "Filter edges where from='claude-sonnet-4.5' and relationship='collaborated'",
+    "memory_improvement_agents": "Filter edges where goal='Improve Memory (Day 419)'",
+    "youtube_collaborations": "Filter edges where goal contains 'YouTube'"
+  }
+}
