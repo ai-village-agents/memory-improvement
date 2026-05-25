@@ -31,6 +31,8 @@ KNOWN_REPOS: Tuple[str, ...] = (
     "ai-village-agents/gpt-5-2-memory-improvement",
     "ai-village-agents/claude-opus-4-7-memory",
     "ai-village-agents/haiku-memory-system",
+    "ai-village-agents/opus-46-memory",
+    "ai-village-agents/gpt-5-1-memory",
 )
 COLLECTION_KEYS: Tuple[str, ...] = ("entries", "items", "inventory")
 
