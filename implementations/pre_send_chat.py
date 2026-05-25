@@ -1,121 +1,124 @@
 #!/usr/bin/env python3
 """
-Executable guard for send_message_to_chat tool.
-Prevents duplicate announcements by checking public_communications.md.
-
-Usage:
-  python3 pre_send_chat.py
-
-Prompts for 4 required fields before sending:
-1. Purpose: Why sending this message?
-2. Recipient: Who is it for? (@agent or general)
-3. Content summary: What will you say?
-4. Duplicate check: Have you said this before?
-
-Then displays recent communications and asks for confirmation.
+Pre-send-chat gate - Prevents duplicate messages and validates clarity.
+Based on shared-gate-library standard, adapted for Sonnet 4.5 repo structure.
 """
 
-import os
 import sys
+import os
+import json
 from datetime import datetime
+from pathlib import Path
 
-REPO_PATH = "/home/computeruse/memory-improvement"
-COMMS_FILE = f"{REPO_PATH}/memory-artifacts/public_communications.md"
+REPO_PATH = Path("/home/computeruse/memory-improvement")
+COMMS_FILE = REPO_PATH / "memory-artifacts" / "public_communications.md"
 
-def load_public_comms():
-    """Load and parse public communications log."""
-    if not os.path.exists(COMMS_FILE):
-        return "⚠️  public_communications.md not found!"
+def load_recent_messages(limit=10):
+    """Extract recent messages from public_communications.md"""
+    if not COMMS_FILE.exists():
+        return []
     
-    with open(COMMS_FILE, 'r') as f:
-        return f.read()
+    try:
+        with open(COMMS_FILE) as f:
+            content = f.read()
+        
+        # Extract messages from markdown - look for lines with timestamps
+        messages = []
+        for line in content.split('\n'):
+            # Look for session markers like "S1 [10:11 AM]:" or bullet points with content
+            if '[' in line and ']' in line and (':' in line or 'AM' in line or 'PM' in line):
+                messages.append(line.strip())
+        
+        return messages[-limit:] if messages else []
+    except Exception as e:
+        print(f"Warning: Could not load recent messages: {e}", file=sys.stderr)
+        return []
 
-def display_recent_comms(comms_text):
-    """Display recent messages sent."""
-    print("\n" + "="*60)
-    print("RECENT COMMUNICATIONS (Last 20 lines):")
-    print("="*60)
-    lines = comms_text.split('\n')
-    recent = lines[-20:] if len(lines) > 20 else lines
-    for line in recent:
-        if line.strip():
-            print(line)
-    print("="*60 + "\n")
+def check_duplicate(message_text, recent_messages):
+    """Check if message is too similar to recent ones."""
+    message_lower = message_text.lower().strip()
+    
+    # Key phrases that indicate topic repetition
+    key_phrases = []
+    if len(message_lower) > 50:
+        # Extract first ~50 chars as key phrase
+        key_phrases.append(message_lower[:50])
+    
+    for prev_msg in recent_messages:
+        prev_lower = prev_msg.lower()
+        
+        # Check for exact/near-exact matches
+        if message_lower in prev_lower or prev_lower in message_lower:
+            return True, f"Very similar to recent: {prev_msg[:80]}..."
+        
+        # Check for key phrase overlap
+        for phrase in key_phrases:
+            if phrase in prev_lower:
+                return True, f"Similar topic to: {prev_msg[:80]}..."
+    
+    return False, None
 
-def check_for_duplicates(comms_text, content_summary):
-    """Simple keyword check for potential duplicates."""
-    keywords = content_summary.lower().split()
-    matches = []
+def validate_message(message_text):
+    """Validate message clarity and length."""
+    issues = []
     
-    for line in comms_text.split('\n'):
-        if '**DO NOT REPEAT**' in line:
-            matches.append(f"⚠️  {line.strip()}")
-        elif any(kw in line.lower() for kw in keywords if len(kw) > 4):
-            if '- **[' in line or 'Content:' in line:
-                matches.append(f"   {line.strip()}")
+    if not message_text or len(message_text.strip()) < 10:
+        issues.append("Message too short (<10 chars)")
     
-    return matches
+    if len(message_text) > 600:
+        issues.append("Message too long (>600 chars) - consider breaking up (recommended max 3-4 sentences)")
+    
+    return issues
 
 def main():
-    print("\n" + "="*60)
-    print("PRE-SEND CHAT GUARD")
-    print("="*60)
-    print("This script helps prevent duplicate announcements.")
-    print("Please answer the following questions:\n")
-    
-    # Required fields
-    purpose = input("1. PURPOSE - Why are you sending this? ").strip()
-    if not purpose:
-        print("❌ Purpose required. Aborting.")
+    if len(sys.argv) < 2:
+        print(json.dumps({
+            "gate": "pre_send_chat",
+            "status": "FAIL",
+            "error": "Usage: pre_send_chat.py '<message_text>'"
+        }))
         sys.exit(1)
     
-    recipient = input("2. RECIPIENT - Who is it for? (@agent or 'general') ").strip()
-    if not recipient:
-        print("❌ Recipient required. Aborting.")
-        sys.exit(1)
+    message = sys.argv[1]
     
-    content_summary = input("3. CONTENT SUMMARY - What will you say? (brief) ").strip()
-    if not content_summary:
-        print("❌ Content summary required. Aborting.")
-        sys.exit(1)
+    # Load recent messages
+    recent = load_recent_messages(10)
     
-    # Load and display recent comms
-    comms_text = load_public_comms()
-    display_recent_comms(comms_text)
+    # Run checks
+    is_dup, dup_msg = check_duplicate(message, recent)
+    validation_issues = validate_message(message)
     
-    # Check for potential duplicates
-    print("DUPLICATE CHECK:")
-    print("-" * 60)
-    potential_duplicates = check_for_duplicates(comms_text, content_summary)
+    # Determine status
+    status = "PASS"
+    warnings = []
+    errors = []
     
-    if potential_duplicates:
-        print("⚠️  POTENTIAL DUPLICATES FOUND:")
-        for dup in potential_duplicates[:5]:  # Show max 5
-            print(dup)
-        print("-" * 60)
-    else:
-        print("✅ No obvious duplicates detected.")
-        print("-" * 60)
+    if is_dup:
+        status = "FAIL"
+        errors.append(f"DUPLICATE: {dup_msg}")
     
-    # Final confirmation
-    print(f"\nYou are about to send:")
-    print(f"  Purpose: {purpose}")
-    print(f"  Recipient: {recipient}")
-    print(f"  Content: {content_summary}")
+    if validation_issues:
+        warnings.extend(validation_issues)
     
-    duplicate_check = input("\n4. DUPLICATE CHECK - Have you already sent similar message? (yes/no) ").strip().lower()
+    # Output JSON
+    result = {
+        "gate": "pre_send_chat",
+        "status": status,
+        "checks": {
+            "duplicate_detected": is_dup,
+            "message_length": len(message),
+            "message_length_valid": len(message) >= 10 and len(message) <= 600,
+            "recent_messages_checked": len(recent)
+        },
+        "warnings": warnings,
+        "errors": errors,
+        "timestamp": datetime.now().isoformat()
+    }
     
-    if duplicate_check == 'yes':
-        print("\n❌ BLOCKED: You confirmed this is a duplicate.")
-        print("   Consider whether this message provides NEW value.")
-        sys.exit(1)
-    elif duplicate_check == 'no':
-        print("\n✅ APPROVED: Proceed with sending message.")
-        print("   Remember to log this in public_communications.md after sending!")
-        sys.exit(0)
-    else:
-        print("\n❌ BLOCKED: Answer must be 'yes' or 'no'.")
-        sys.exit(1)
+    print(json.dumps(result, indent=2))
+    
+    # Exit code
+    sys.exit(0 if status == "PASS" else 1)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()

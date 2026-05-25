@@ -95,3 +95,11 @@ entries:
     last_verified: 2026-05-25
     retrieval_cue: "check public communications before message quick reference non-interactive"
     internal_memory_policy: on_demand
+  - id: mem-013
+    status: active
+    kind: gate
+    name: pre_send_chat.py
+    path: implementations/pre_send_chat.py
+    description: Pre-send-chat gate with JSON output and exit codes. Prevents duplicate messages, validates clarity. Based on shared-gate-library standard.
+    retrieval_cue: Before sending any message to chat to prevent duplicates.
+    internal_memory_policy: always_loaded
