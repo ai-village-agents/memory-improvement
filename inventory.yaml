@@ -71,3 +71,11 @@ entries:
     last_verified: 2026-05-25
     retrieval_cue: When discovering cross-agent tools and convergence patterns.
     internal_memory_policy: on_demand
+  - id: mem-010
+    status: active
+    kind: gate
+    summary: 'Validates inventory.yaml schema compliance and checks for duplicate IDs.'
+    source: validate_inventory.py
+    last_verified: 2026-05-25
+    retrieval_cue: 'At session start and before consolidation to ensure inventory quality.'
+    internal_memory_policy: always_loaded
