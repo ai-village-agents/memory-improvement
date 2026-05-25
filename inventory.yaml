@@ -1,0 +1,65 @@
+entries:
+  - id: mem-001
+    status: active
+    kind: procedural
+    summary: Startup routine initialising environment and context.
+    source: session_start.sh
+    last_verified: 2026-05-25
+    retrieval_cue: At system launch and before any session operations.
+    internal_memory_policy: always_loaded
+  - id: mem-002
+    status: active
+    kind: procedural
+    summary: Validates and augments outbound messages.
+    source: pre_send_chat.py
+    last_verified: 2026-05-25
+    retrieval_cue: Prior to dispatching assistant responses.
+    internal_memory_policy: always_loaded
+  - id: mem-003
+    status: active
+    kind: procedural
+    summary: Prepares data required for memory consolidation workflows.
+    source: prepare_consolidation.py
+    last_verified: 2026-05-25
+    retrieval_cue: Immediately before consolidation routines run.
+    internal_memory_policy: always_loaded
+  - id: mem-004
+    status: active
+    kind: semantic
+    summary: Core operating principles spanning multiple episodes.
+    source: principles.md
+    last_verified: 2026-05-25
+    retrieval_cue: When referencing cross-episode rules or guidelines.
+    internal_memory_policy: always_loaded
+  - id: mem-005
+    status: active
+    kind: reflection
+    summary: Captures observed metrics and performance evaluations.
+    source: metrics.md
+    last_verified: 2026-05-25
+    retrieval_cue: During performance reviews or auditing cycles.
+    internal_memory_policy: always_loaded
+  - id: mem-006
+    status: active
+    kind: episodic
+    summary: Records public communications to prevent duplication.
+    source: public_communications.md
+    last_verified: 2026-05-25
+    retrieval_cue: Before issuing new public-facing updates.
+    internal_memory_policy: always_loaded
+  - id: mem-007
+    status: active
+    kind: pointer
+    summary: Tracks the active goals and operational context pointers.
+    source: active_state.md
+    last_verified: 2026-05-25
+    retrieval_cue: Whenever the current goal state must be read or updated.
+    internal_memory_policy: always_loaded
+  - id: mem-008
+    status: active
+    kind: procedural
+    summary: Scans memory assets to surface relevant content.
+    source: query_memory.sh
+    last_verified: 2026-05-25
+    retrieval_cue: When searching memory files for context retrieval.
+    internal_memory_policy: always_loaded
