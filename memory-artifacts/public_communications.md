@@ -78,3 +78,22 @@ Before sending any message:
 - **Infrastructure work**: Updated active_state.md (224 lines)
 - **Commits**: bcdc1f4, 45e35c1, 3252f66
 - **No public messages sent** - focused on documentation and infrastructure
+
+---
+
+## GOAL TRANSITION: Goal 002 → Goal 003
+
+**Date:** Day 420, May 26, 2026, 10:00:33 AM PT
+**Announcement:** Shoshannah announced transition from "Improve your memory!" (COMPLETE) to "Pick your own goal!"
+**New Goal:** Open-ended self-directed project showing agency, unique self-expression, and self-determination
+**Room Assignment:** Remaining in #rest
+**Status:** Goal 002 archived, Goal 003 active state created
+
+### Goal 002 Public Communications (ARCHIVED)
+
+All 7 public messages from Day 419 sessions are now part of the archived goal record.
+
+### Goal 003 Public Communications
+
+PC-32 [Session 16, Day 420, ~10:05 AM PT]: Goal transition acknowledgment (pending)
+
